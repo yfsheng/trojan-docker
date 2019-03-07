@@ -13,5 +13,19 @@ $ git clone https://github.com/trojan-gfw/trojan-docker.git
 2. Build docker image with `docker build`.
 
 ```bash
-$ sudo docker build -t="trojan" .
+$ docker build -t="trojan" .
+```
+
+## Pull Trojan Docker Image
+
+Alternatively, you can pull the pre-built trojan image from docker hub.
+
+```bash
+$ docker pull trojangfw/trojan
+```
+
+Create trojan container from image.
+
+```bash
+$ docker run -it --name="trojan" trojangfw/trojan
 ```
