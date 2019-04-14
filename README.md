@@ -27,5 +27,5 @@ $ docker pull trojangfw/trojan
 Create trojan container from image.
 
 ```bash
-$ docker run -it --name="trojan" trojangfw/trojan
+$ docker run -it --name="trojan" -v $HOST_CONFIG_PATH:/config -p 443:443 trojangfw/trojan
 ```

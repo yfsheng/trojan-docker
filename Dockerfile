@@ -1,5 +1,5 @@
 FROM alpine:3.9
-
+WORKDIR /app
 RUN apk add --no-cache --virtual .build-deps \
         build-base \
         cmake \
@@ -7,20 +7,20 @@ RUN apk add --no-cache --virtual .build-deps \
         openssl-dev \
         mariadb-connector-c-dev \
         git \
-    && git clone --branch=v1.11.0 https://github.com/trojan-gfw/trojan.git \
-    && cd trojan \
-    && cmake -DCMAKE_INSTALL_PREFIX=/usr . \
-    && make install \
-    && strip -s /usr/bin/trojan \
+    && git clone --branch=v1.12.0 https://github.com/trojan-gfw/trojan.git repo \
+    && cd repo \
+    && cmake . \
+    && make \
+    && strip -s trojan \
+    && mv trojan .. \
     && cd .. \
-    && rm -rf trojan \
+    && rm -rf repo \
     && apk del .build-deps \
     && apk add --no-cache --virtual .trojan-rundeps \
         libstdc++ \
         boost-system \
         boost-program_options \
         mariadb-connector-c
-
+WORKDIR /config
 EXPOSE 443
-
-CMD ["trojan"]
+CMD ["/app/trojan", "config.json"]
