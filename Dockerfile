@@ -7,7 +7,7 @@ RUN apk add --no-cache --virtual .build-deps \
         openssl-dev \
         mariadb-connector-c-dev \
         git \
-    && git clone --branch=v1.12.0 https://github.com/trojan-gfw/trojan.git repo \
+    && git clone --branch=v1.12.1 https://github.com/trojan-gfw/trojan.git repo \
     && cd repo \
     && cmake . \
     && make \
