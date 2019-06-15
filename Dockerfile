@@ -1,7 +1,6 @@
 FROM alpine:3.9
 
 ARG VERSION='v1.12.2'
-ENV VERSION ${VERSION}
 
 RUN apk add --no-cache --virtual .build-deps \
         build-base \
@@ -15,15 +14,11 @@ RUN apk add --no-cache --virtual .build-deps \
     && mv trojan /usr/local/bin) \
     && rm -rf trojan \
     && apk del .build-deps \
-    && apk add  --no-cache --virtual .trojan-rundeps \
+    && apk add --no-cache --virtual .trojan-rundeps \
         libstdc++ \
         boost-system \
         boost-program_options \
         mariadb-connector-c
 
-VOLUME /config
 WORKDIR /config
-
-EXPOSE 443
-
 CMD ["trojan", "trojan.json"]
