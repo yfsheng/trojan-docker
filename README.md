@@ -8,6 +8,7 @@ Dockerfile for building a trojan docker image.
 
 ```bash
 $ git clone https://github.com/trojan-gfw/trojan-docker.git
+$ cd trojan-docker/
 ```
 
 2. Build docker image with `docker build`.
@@ -16,7 +17,7 @@ $ git clone https://github.com/trojan-gfw/trojan-docker.git
 $ docker build -t trojan .
 ```
 
-If you want to change the version, use the `--build-arg` option
+If you want to change the version, use the `--build-arg` option.
 
 ```bash
 $ docker build -t trojan --build-arg VERSION=v1.12.2 .
@@ -30,13 +31,13 @@ Alternatively, you can pull the pre-built trojan image from docker hub.
 $ docker pull trojangfw/trojan
 ```
 
-Create trojan container from image.
+## Create Trojan Container from Image
 
 **The `$HOST_CONFIG_DIR` directory should contain the `trojan.json` configuration file
-and other configuration files (eg: certificate file)**
+and other related files (eg: certificate file).**
 
 ```bash
-$ docker run -dt --name trojan -v $HOST_CONFIG_DIR:/config
+$ docker run -dt --name trojan -v $HOST_CONFIG_DIR:/config -p 443:443
 ```
 
 View container logs
