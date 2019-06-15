@@ -1,6 +1,6 @@
 FROM alpine:3.9
 
-ARG VERSION='v1.12.2'
+ARG VERSION='v1.12.3'
 
 RUN apk add --no-cache --virtual .build-deps \
         build-base \

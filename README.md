@@ -20,7 +20,7 @@ $ docker build -t trojan .
 If you want to change the version, use the `--build-arg` option.
 
 ```bash
-$ docker build -t trojan --build-arg VERSION=v1.12.2 .
+$ docker build -t trojan --build-arg VERSION=v1.12.3 .
 ```
 
 ## Pull Trojan Docker Image
