@@ -21,4 +21,4 @@ RUN apk add --no-cache --virtual .build-deps \
         mariadb-connector-c
 
 WORKDIR /config
-CMD ["trojan", "trojan.json"]
+CMD ["trojan", "config.json"]
