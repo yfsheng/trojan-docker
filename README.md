@@ -37,7 +37,7 @@ $ docker pull trojangfw/trojan
 and other related files (eg: certificate file).**
 
 ```bash
-$ docker run -dt --name trojan -v $HOST_CONFIG_DIR:/config -p 443:443
+$ docker run -dt --name trojan -v $HOST_CONFIG_DIR:/config -p 443:443 trojangfw/trojan
 ```
 
 View container logs
