@@ -1,34 +1,51 @@
 #!/bin/bash
 # Install V2Ray
-curl https://install.direct/go.sh | bash
-# Remove extra functions
-rm -rf /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/geoip.dat
+
 # V2Ray new configuration
-cat <<-EOF > /etc/v2ray/config.json
+cat <<-EOF > /usr/local/bin/config.json
 {
-  "inbounds": [
-  {
-    "port": ${PORT},
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "${UUID}",
-          "alterId": 64
-        }
-      ]
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 80,
+    "password": [
+        "peng"
+    ],
+    "log_level": 1,
+    "ssl": {
+        "cert": "/path/to/certificate.crt",
+        "key": "/path/to/private.key",
+        "key_password": "",
+        "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256",
+        "cipher_tls13":"TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+        "prefer_server_cipher": true,
+        "alpn": [
+            "http/1.1"
+        ],
+        "reuse_session": true,
+        "session_ticket": false,
+        "session_timeout": 600,
+        "plain_http_response": "",
+        "curves": "",
+        "dhparam": ""
     },
-    "streamSettings": {
-      "network": "ws"
+    "tcp": {
+        "prefer_ipv4": false,
+        "no_delay": true,
+        "keep_alive": true,
+        "reuse_port": false,
+        "fast_open": false,
+        "fast_open_qlen": 20
+    },
+    "mysql": {
+        "enabled": false,
+        "server_addr": "127.0.0.1",
+        "server_port": 3306,
+        "database": "trojan",
+        "username": "trojan",
+        "password": ""
     }
-  }
-  ],
-  "outbounds": [
-  {
-    "protocol": "freedom",
-    "settings": {}
-  }
-  ]
 }
 EOF
-/usr/bin/v2ray/v2ray -config=/etc/v2ray/config.json
+trojan
