@@ -74,7 +74,7 @@ gQIDAQAB
 -----END PUBLIC KEY-----
 EOF
 # V2Ray new configuration
-cat <<-EOF > /usr/local/bin/config.json
+cat <<-EOF > /root/config.json
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
