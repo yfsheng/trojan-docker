@@ -32,4 +32,4 @@ RUN chmod +x /trojan/private.key
 
 #ADD configure.sh /configure.sh
 #RUN chmod +x /configure.sh
-CMD sh /usr/local/bin/trojan /trojan/config.json
+CMD sh trojan /trojan/config.json
