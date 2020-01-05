@@ -1,2 +1,2 @@
 #!/bin/bash
-sh trojan /trojan/config.json
+/trojan/trojan /trojan/config.json
