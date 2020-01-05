@@ -1,7 +1,8 @@
 FROM alpine:3.9
 
 ARG VERSION='v1.14.0'
-
+RUN apk update
+RUN apk upgrade
 RUN apk add --no-cache --virtual .build-deps \
         build-base \
         cmake \
