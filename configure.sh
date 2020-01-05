@@ -2,7 +2,7 @@
 # Install V2Ray
 
 # V2Ray new configuration
-cat <<-EOF > /usr/local/etc/trojan/config.json
+cat <<-EOF > /usr/local/config.json
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
@@ -48,4 +48,4 @@ cat <<-EOF > /usr/local/etc/trojan/config.json
     }
 }
 EOF
-trojan
+trojan /usr/local/config.json
