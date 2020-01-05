@@ -9,6 +9,7 @@ RUN apk add --no-cache --virtual .build-deps \
         openssl-dev \
         mariadb-connector-c-dev \
         git \
+        bash \
     && git clone --branch=${VERSION} https://github.com/trojan-gfw/trojan.git \
     && (cd trojan && cmake . && make -j $(nproc) && strip -s trojan \
     && mv trojan /usr/local/bin) \
