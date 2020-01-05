@@ -30,6 +30,6 @@ RUN chmod +x /trojan/certificate.crt
 ADD /trojan/private.key /trojan/private.key
 RUN chmod +x /trojan/private.key
 
-#ADD configure.sh /configure.sh
-#RUN chmod +x /configure.sh
-CMD sh trojan /trojan/config.json
+ADD configure.sh /configure.sh
+RUN chmod +x /configure.sh
+CMD sh /configure.sh
