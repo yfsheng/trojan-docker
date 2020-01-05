@@ -24,4 +24,4 @@ RUN apk add --no-cache --virtual .build-deps \
 
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
-CMD /configure.sh
+CMD sh /configure.sh
