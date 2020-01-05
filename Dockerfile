@@ -20,5 +20,6 @@ RUN apk add --no-cache --virtual .build-deps \
         boost-program_options \
         mariadb-connector-c
 
-WORKDIR /config
-CMD ["trojan", "config.json"]
+ADD configure.sh /configure.sh
+RUN chmod +x /configure.sh
+CMD /configure.sh
