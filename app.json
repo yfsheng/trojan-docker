@@ -1,0 +1,14 @@
+{
+	"name": "trojan",
+	"description": "Deploy trojan on Heroku.",
+	"keywords": ["trojan"],
+	"env": {
+		"UUID": {
+			"description": "V2Ray UUID",
+			"value": "ad806487-2d26-4636-98b6-ab85cc8521f7"
+		}
+	},
+	"website": "https://ibcl.us/Heroku-V2Ray_20191014/",
+	"repository": "https://github.com/byxiaopeng/trojan-docker",
+	"stack": "container"
+}
