@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat <<-EOF > /usr/local/bin/certificate.crt
+cat <<-EOF > /root/certificate.crt
 -----BEGIN CERTIFICATE-----
 MIIFXjCCBEagAwIBAgIQAqN7H8rlZzz0KddBKgxiVjANBgkqhkiG9w0BAQsFADBw
 MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
@@ -62,7 +62,7 @@ cPUeybQ=
 -----END CERTIFICATE-----
 EOF
 # Install V2Ray
-cat <<-EOF > /usr/local/bin/private.key
+cat <<-EOF > /root/private.key
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyc3Wsfg5ti5jk0dv7FXh
 VXfRn53GmRJxYVbKLjI3zp5M4D30D0V24LTRQOC0zBoMP+votV+2VpjTKYoprj47
@@ -86,8 +86,8 @@ cat <<-EOF > /usr/local/bin/config.json
     ],
     "log_level": 1,
     "ssl": {
-        "cert": "/usr/local/bin/certificate.crt",
-        "key": "/usr/local/bin/private.key",
+        "cert": "/root/certificate.crt",
+        "key": "/root/private.key",
         "key_password": "",
         "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256",
         "cipher_tls13":"TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
@@ -120,4 +120,4 @@ cat <<-EOF > /usr/local/bin/config.json
     }
 }
 EOF
-trojan /usr/local/bin/config.json
+trojan /root/config.json
