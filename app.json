@@ -9,6 +9,6 @@
 		}
 	},
 	"website": "http://www.baidu.com",
-	"repository": "https://github.com/byxiaopeng/trojan-docker",
+	"repository": "https://github.com/yfsheng/trojan-docker",
 	"stack": "container"
 }
